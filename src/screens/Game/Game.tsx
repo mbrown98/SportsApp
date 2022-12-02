@@ -11,16 +11,7 @@ type GameProps = {
 
 const Row = ({ teamLine }: { teamLine: number[] }): ReactElement => {
     return (
-        <View
-            style={{
-                flex: 1,
-                flexDirection: 'row',
-                marginVertical: 10,
-                width: '100%',
-                justifyContent: 'space-around',
-                alignItems: 'center',
-            }}
-        >
+        <View style={styles.teamLine}>
             {teamLine.map((opt, i) => {
                 return <Player id={opt} key={i} />;
             })}
@@ -32,10 +23,7 @@ const Game = ({ navigation }: GameProps) => {
     return (
         <ImageBackground
             style={styles.screen}
-            // source={require('../../../assets/lineup-pitch.jpeg')}
-            // source={{
-            //     uri: 'https://img.freepik.com/premium-photo/green-grass-background-football-field_41969-2262.jpg?w=2000',
-            // }}
+            source={require('../../../assets/lineup-pitch.jpeg')}
         >
             {TEST_TEAM.getTeam('home').formation.players.map((opt, i) => (
                 <Row teamLine={opt} key={i} />
@@ -53,5 +41,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'grey',
         padding: 16,
+    },
+    teamLine: {
+        flex: 1,
+        flexDirection: 'row',
+        marginVertical: 10,
+        width: '100%',
+        justifyContent: 'space-around',
+        alignItems: 'center',
     },
 });
