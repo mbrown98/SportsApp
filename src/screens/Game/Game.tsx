@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import React, { ReactElement } from 'react';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackNavigatorParams } from '../../config/Navigator';
-import Player from '../../components/Player/Player';
+import Player from './components/Player/Player';
 import { TEST_TEAM } from '../../data/testData';
 
 type GameProps = {
@@ -15,8 +15,10 @@ const Row = ({ teamLine }: { teamLine: number[] }): ReactElement => {
             style={{
                 flex: 1,
                 flexDirection: 'row',
+                marginVertical: 10,
+                width: '100%',
+                justifyContent: 'space-around',
                 alignItems: 'center',
-                justifyContent: 'center',
             }}
         >
             {teamLine.map((opt, i) => {
@@ -28,16 +30,28 @@ const Row = ({ teamLine }: { teamLine: number[] }): ReactElement => {
 
 const Game = ({ navigation }: GameProps) => {
     return (
-        <View style={styles.screen}>
+        <ImageBackground
+            style={styles.screen}
+            // source={require('../../../assets/lineup-pitch.jpeg')}
+            // source={{
+            //     uri: 'https://img.freepik.com/premium-photo/green-grass-background-football-field_41969-2262.jpg?w=2000',
+            // }}
+        >
             {TEST_TEAM.getTeam('home').formation.players.map((opt, i) => (
                 <Row teamLine={opt} key={i} />
             ))}
-        </View>
+        </ImageBackground>
     );
 };
 
 export default Game;
 
 const styles = StyleSheet.create({
-    screen: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+    screen: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'grey',
+        padding: 16,
+    },
 });
