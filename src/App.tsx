@@ -1,8 +1,10 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+// In App.js in a new project
 
-export default function App() {
-    return (
-        <NavigationContainer>{/* Rest of your app code */}</NavigationContainer>
-    );
+import * as React from 'react';
+import Navigator from './config/Navigator';
+
+function App() {
+    return <Navigator />;
 }
+
+export default App;
