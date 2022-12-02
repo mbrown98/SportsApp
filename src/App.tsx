@@ -1,35 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 
-import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
-
-const App = () => {
-  return (
-    <SafeAreaView>
-      <Text>Hi</Text>
-    </SafeAreaView>
-  );
-};
-
-// const styles = StyleSheet.create({
-// });
-
-export default App;
-
-{
-  /* <AuthProvider>
-<AppBootstrap>
-    <SettingsProvider>
-        <Navigator />
-    </SettingsProvider>
-</AppBootstrap>
-</AuthProvider> */
+export default function App() {
+    return (
+        <NavigationContainer>{/* Rest of your app code */}</NavigationContainer>
+    );
 }
